@@ -1,0 +1,322 @@
+
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+  }
+
+
+  .column {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .column h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .task-card {
+    background-color: #fafafa;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .task-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #222;
+  }
+  
+  .task-card p {
+    margin: 6px 0;
+    color: #ffffff;
+  }
+
+
+  .priority-high {
+    background-color: red;
+  }
+  
+  .priority-medium {
+    background-color: orange;
+  }
+  
+  .priority-low {
+    background-color: blue;
+  }
+  
+  .priority-default {
+    background-color: gray;
+  }
+
+
+  /* Modal overlay — բավականաչափ մուգ թափանցիկ ֆոն */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);  /* 60% մութ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal պատուհան՝ կենտրոնացված,rounded կարճեր, նուրբ ստվեր */
+  .modal {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  /* Modal վերնագիր */
+  .modal h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: #333333;
+    text-align: center;
+  }
+  
+  /* Input-ներ, textarea և select՝ մաքուր, միատարր տեսք */
+  .modal input,
+  .modal textarea,
+  .modal select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border 0.2s;
+  }
+  
+  .modal input:focus,
+  .modal textarea:focus,
+  .modal select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* Modal կոճակների կոնտեյներ */
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  /* Modal կոճակներ՝ rounded կես, պարզ էֆեկտ */
+  .modal-buttons button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  /* Save կոճակ՝ primary տեսքով */
+  .modal-buttons button:first-child {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .modal-buttons button:first-child:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+  }
+  
+  /* Cancel կոճակ՝ neutral տեսքով */
+  .modal-buttons button:last-child {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .modal-buttons button:last-child:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+  }
+  
+  .column h1 i {
+    margin-right: 6px;
+    color: #007bff;
+  }
+  
+  /* Add Task button icon */
+  .add-task-btn i {
+    margin-right: 6px;
+  }
+  
+  /* TaskCard action icons */
+  .task-card .buttons .edit-btn i,
+  .task-card .buttons .delete-btn i {
+    font-size: 1.1rem;
+  }
+  /* TaskCard container */
+.task-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .task-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* Title */
+  .task-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333333;
+  }
+  
+  /* Priority badge */
+  .priority-high span,
+  .priority-medium span,
+  .priority-low span,
+  .priority-default span {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .priority-high span {
+    background-color: #ffe5e5;
+    color: #c82333;
+  }
+  .priority-medium span {
+    background-color: #fff4e5;
+    color: #e08e0b;
+  }
+  .priority-low span {
+    background-color: #e5f0ff;
+    color: #0056b3;
+  }
+  .priority-default span {
+    background-color: #f0f0f0;
+    color: #6c757d;
+  }
+  /* wrapper փոզիցիան, որ delete-ի կոճակը չխցկվի */
+.task-wrapper {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  /* TaskCard – ֆունկցիոնալ, քարտ-ֆորմատ */
+  .task-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    padding: 16px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  }
+  
+  /* Առանձին կոնտենտ, որ դնում է ամեն ինչ վայրին */
+  .task-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  /* Title */
+  .task-title {
+    flex: 1;
+    margin: 0;
+    font-size: 1.15rem;
+    color: #222222;
+  }
+  
+  /* Priority badge */
+  .priority-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+  /* Badge գույներ */
+  .priority-high {
+    background: #fdecea;
+    color: #d32f2f;
+  }
+  .priority-medium {
+    background: #fff4e5;
+    color: #f57c00;
+  }
+  .priority-low {
+    background: #e8f5e9;
+    color: #388e3c;
+  }
+  .priority-default {
+    background: #eceff1;
+    color: #607d8b;
+  }
+  
+  /* Assignee */
+  .task-assignee {
+    font-size: 0.9rem;
+    color: #555555;
+  }
+  
+  /* Delete կոճակ՝ position absolute */
+  .delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #e53935;
+    font-size: 1rem;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    cursor: pointer;
+  }
+  .delete-btn:hover {
+    background: rgba(229,57,53,0.1);
+    color: #b71c1c;
+    transform: scale(1.1);
+  }
+  
+  
